@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.venv/
+*.so
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Docker (don't nest Docker contexts)
+Dockerfile
+docker-compose*.yml
+
+# Media (runtime data, mounted as volume)
+media/
+
+# Docs & scripts not needed at runtime
+scripts/
+*.md
+LICENSE

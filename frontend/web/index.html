@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Muallimi Soniy — Ikkinchi Muallim. Arab tili o'rganish ilovasi.">
+  <meta name="theme-color" content="#f0f4ef">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Muallimi Soniy">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>Muallimi Soniy — Ikkinchi Muallim</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f4ef;
+      overflow: hidden;
+    }
+
+    /* ===== SPLASH SCREEN ===== */
+    #loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #f5f8f4 0%, #eaf0e8 50%, #e2ebe0 100%);
+      z-index: 99999;
+      /* Whole page animates in together */
+      opacity: 0;
+      animation: pageAppear 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+      transition: opacity 1s ease-out;
+    }
+
+    /* Whole-page smooth appearance */
+    @keyframes pageAppear {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #loading.fade-out {
+      opacity: 0 !important;
+      pointer-events: none;
+      transition: opacity 1s ease-out;
+    }
+
+    /* ── Logo ── */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-img {
+      width: min(280px, 65vw);
+      height: auto;
+      /* White shadow underneath for contrast */
+      filter:
+        drop-shadow(0 8px 24px rgba(255, 255, 255, 0.8)) drop-shadow(0 4px 12px rgba(0, 80, 0, 0.08));
+    }
+
+    /* ── Ornamental divider ── */
+    .splash-divider {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .div-line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(26, 92, 42, 0.25), transparent);
+    }
+
+    .div-dot {
+      width: 4px;
+      height: 4px;
+      background: rgba(26, 92, 42, 0.3);
+      border-radius: 50%;
+    }
+
+    /* ── Copyright text ── */
+    .copyright-text {
+      margin-top: 28px;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .copyright-org {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(26, 92, 42, 0.6);
+      letter-spacing: 0.5px;
+    }
+
+    .copyright-rights {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+      font-size: 11px;
+      color: rgba(26, 92, 42, 0.35);
+      letter-spacing: 0.3px;
+      margin-top: 4px;
+    }
+
+    /* ── App name ── */
+    .app-name {
+      margin-top: 28px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(26, 92, 42, 0.7);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading">
+    <div class="logo-container">
+      <img class="logo-img" id="logo" src="assets/logo.png" alt="Muslim.uz — O'zbekiston musulmonlar idorasi">
+    </div>
+
+    <div class="splash-divider">
+      <div class="div-line"></div>
+      <div class="div-dot"></div>
+      <div class="div-dot"></div>
+      <div class="div-dot"></div>
+      <div class="div-line"></div>
+    </div>
+
+    <div class="app-name">Muallimi Soniy</div>
+
+    <div class="copyright-text">
+      <div class="copyright-org">O'zbekiston Musulmonlar Idorasi</div>
+      <div class="copyright-rights">© 2014 — Barcha huquqlar himoyalangan</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var animationDone = false;
+      var flutterReady = false;
+      var splashRemoved = false;
+
+      function tryHideSplash() {
+        if (!animationDone || !flutterReady || splashRemoved) return;
+        splashRemoved = true;
+        var el = document.getElementById('loading');
+        if (el) {
+          el.classList.add('fade-out');
+          setTimeout(function () { el.remove(); }, 400);
+        }
+      }
+
+      // Mark animation done quickly
+      setTimeout(function () {
+        animationDone = true;
+        tryHideSplash();
+      }, 800);
+
+      // Detect Flutter ready
+      window.removeSplash = function () {
+        flutterReady = true;
+        tryHideSplash();
+      };
+
+      var observer = new MutationObserver(function (mutations) {
+        for (var m of mutations) {
+          for (var node of m.addedNodes) {
+            if (node.tagName && (
+              node.tagName.toLowerCase().indexOf('flt-') === 0 ||
+              node.tagName === 'FLUTTER-VIEW' ||
+              (node.tagName === 'DIV' && node.querySelector && node.querySelector('canvas'))
+            )) {
+              flutterReady = true;
+              tryHideSplash();
+              observer.disconnect();
+              return;
+            }
+          }
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Safety timeout
+      setTimeout(function () {
+        animationDone = true;
+        flutterReady = true;
+        tryHideSplash();
+        observer.disconnect();
+      }, 5000);
+    })();
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>

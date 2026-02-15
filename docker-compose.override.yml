@@ -1,0 +1,28 @@
+# === Local development docker-compose override ===
+# Usage: docker compose -f docker-compose.yml -f docker-compose.override.yml up -d
+# Note: Docker Compose auto-merges docker-compose.override.yml with docker-compose.yml
+
+version: "3.9"
+
+services:
+  api:
+    # Faster reload in dev
+    command: >
+      uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - media_data:/app/media
+      - ./backend/app:/app/app
+
+  worker:
+    volumes:
+      - media_data:/app/media
+      - ./backend/app:/app/app
+
+  nginx:
+    ports:
+      - "8888:80"
+    volumes:
+      - ./deploy/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./deploy/nginx/sites-local:/etc/nginx/conf.d:ro
+      - ./frontend/build/web:/usr/share/nginx/web:ro
+      - media_data:/usr/share/nginx/media:ro

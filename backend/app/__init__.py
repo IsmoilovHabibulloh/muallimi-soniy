@@ -1,0 +1,1 @@
+"""Muallimus Soniy Backend Application."""
