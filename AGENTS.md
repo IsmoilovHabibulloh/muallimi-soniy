@@ -13,7 +13,8 @@ Bu loyiha **bd** (beads) bilan task tracking qiladi. Yangi conversation boshlaga
 | Admin | Vanilla JS SPA | `admin/` |
 | Deploy | Docker Compose + Nginx + SSL | `deploy/` |
 
-- **Server:** `root@ikkinchimuallim.codingtech.uz` (parol: `codingtech2204`)
+- **Server:** `root@46.224.135.238` (parol: `codingtech2204`)
+- **Domain:** `ikkinchimuallim.codingtech.uz` → IPv4: `46.224.135.238`
 - **API:** `https://ikkinchimuallim.codingtech.uz/api/`
 - **Admin:** `https://ikkinchimuallim.codingtech.uz/admin/`
 - **GitHub:** `github.com/IsmoilovHabibulloh/muallimi-soniy`

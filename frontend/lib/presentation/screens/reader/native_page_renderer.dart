@@ -2540,7 +2540,7 @@ class _TableRow extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                 ),
                 alignment: Alignment.center,
-                child: isMadd
+                child: (isMadd && _wordContainsMadd(unit.textContent))
                     ? _buildMaddText(
                         unit.textContent,
                         fontSize,
@@ -2569,6 +2569,23 @@ class _TableRow extends StatelessWidget {
         }).toList(),
       ),
     );
+  }
+
+  /// Checks if a word contains a valid madd pattern:
+  /// harakat + madd letter (alif/waw/ya)
+  bool _wordContainsMadd(String text) {
+    final runes = text.runes.toList();
+    for (int i = 0; i < runes.length - 1; i++) {
+      final cp = runes[i];
+      final next = runes[i + 1];
+      // Fatha (U+064E) followed by Alif (U+0627)
+      if (cp == 0x064E && next == 0x0627) return true;
+      // Kasra (U+0650) followed by Ya (U+064A or U+0649)
+      if (cp == 0x0650 && (next == 0x064A || next == 0x0649)) return true;
+      // Damma (U+064F) followed by Waw (U+0648)
+      if (cp == 0x064F && next == 0x0648) return true;
+    }
+    return false;
   }
 
   /// Builds Arabic text with madd-specific diacritics using Unicode substitution:
@@ -2622,15 +2639,18 @@ class _TableRow extends StatelessWidget {
     }
 
     // For all other text: apply Unicode substitution for tikka fatha/kasra
+    // ONLY when the harakat is immediately followed by a madd letter.
+    // Non-madd harakats remain as normal diacritics.
     final runes = text.runes.toList();
     final buffer = StringBuffer();
     for (int i = 0; i < runes.length; i++) {
       final cp = runes[i];
-      if (cp == 0x064E) {
-        // Fatha → Superscript Alef (tikka) for non-alif letters
+      final next = (i + 1 < runes.length) ? runes[i + 1] : 0;
+      if (cp == 0x064E && next == 0x0627) {
+        // Fatha → Superscript Alef (tikka) ONLY before Alif
         buffer.write('\u0670');
-      } else if (cp == 0x0650) {
-        // Kasra → Subscript Alef (tikka)
+      } else if (cp == 0x0650 && (next == 0x064A || next == 0x0649)) {
+        // Kasra → Subscript Alef (tikka) ONLY before Ya
         buffer.write('\u0656');
       } else {
         buffer.write(String.fromCharCode(cp));
