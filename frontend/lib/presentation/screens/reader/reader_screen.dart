@@ -347,7 +347,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
                       Theme.of(context).scaffoldBackgroundColor,
                       Theme.of(context)
                           .scaffoldBackgroundColor
-                          .withOpacity(0),
+                          .withValues(alpha: 0),
                     ],
                   ),
                 ),
@@ -452,8 +452,8 @@ class _AudioBar extends StatelessWidget {
           end: Alignment.topCenter,
           colors: [
             Theme.of(context).scaffoldBackgroundColor,
-            Theme.of(context).scaffoldBackgroundColor.withOpacity(0.95),
-            Theme.of(context).scaffoldBackgroundColor.withOpacity(0),
+            Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.95),
+            Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0),
           ],
           stops: const [0.0, 0.7, 1.0],
         ),
@@ -474,9 +474,9 @@ class _AudioBar extends StatelessWidget {
                       value: totalUnits > 0
                           ? (currentUnitIndex + 1) / totalUnits
                           : 0,
-                      backgroundColor: AppColors.primary.withOpacity(0.12),
+                      backgroundColor: AppColors.primary.withValues(alpha: 0.12),
                       valueColor: AlwaysStoppedAnimation<Color>(
-                        AppColors.primary.withOpacity(0.7),
+                        AppColors.primary.withValues(alpha: 0.7),
                       ),
                       minHeight: 3,
                     ),
@@ -486,7 +486,7 @@ class _AudioBar extends StatelessWidget {
                     '${currentUnitIndex + 1} / $totalUnits',
                     style: TextStyle(
                       fontSize: 11,
-                      color: AppColors.primary.withOpacity(0.6),
+                      color: AppColors.primary.withValues(alpha: 0.6),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -515,9 +515,9 @@ class _AudioBar extends StatelessWidget {
                       overlayRadius: 14,
                     ),
                     activeTrackColor: AppColors.primary,
-                    inactiveTrackColor: AppColors.primary.withOpacity(0.15),
+                    inactiveTrackColor: AppColors.primary.withValues(alpha: 0.15),
                     thumbColor: AppColors.primary,
-                    overlayColor: AppColors.primary.withOpacity(0.12),
+                    overlayColor: AppColors.primary.withValues(alpha: 0.12),
                   ),
                   child: Slider(
                     value: currentPage.toDouble(),
@@ -638,11 +638,11 @@ class _ControlButtonState extends State<_ControlButton>
             shape: BoxShape.circle,
             color: widget.isPrimary
                 ? AppColors.primary
-                : AppColors.primary.withOpacity(0.12),
+                : AppColors.primary.withValues(alpha: 0.12),
             boxShadow: widget.isPrimary && widget.isActive
                 ? [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(0.3),
+                      color: AppColors.primary.withValues(alpha: 0.3),
                       blurRadius: 12,
                       spreadRadius: 2,
                     ),
