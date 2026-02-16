@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
-/// Premium 2026 UI theme for Muallimus Soniy.
+/// Premium 2026 UI theme for Muallimi Soniy.
 class AppTheme {
   AppTheme._();
 

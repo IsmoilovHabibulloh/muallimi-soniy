@@ -239,7 +239,7 @@ const Map<String, String> uzCyrlStrings = {
   'aboutOpenSourceTitle': '6. Очиқ манба',
   'aboutOpenSource1':
       'Дастурий код CC BY-NC 4.0 лицензияси остида очиқ (open source).',
-  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimus-soniy',
+  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimi-soniy',
   'aboutPublishTitle': '7. Нашр маълумотлари',
   'aboutOriginalAuthor': 'Аҳмад Ходий Мақсудий',
   'aboutPublishBasis': 'ВазМаҳкама, 3438-сон, 2014',

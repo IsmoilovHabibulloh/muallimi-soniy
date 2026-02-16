@@ -12,7 +12,7 @@ from app.api.v1.router import router as v1_router
 from app.middleware import RequestLoggingMiddleware
 from app.middleware.rate_limit import RateLimitMiddleware
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 settings = get_settings()
 
 
@@ -59,7 +59,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
-    description="Muallimus Soniy — Ikkinchi Muallim. API for the Arabic learning book app.",
+    description="Muallimi Soniy — Ikkinchi Muallim. API for the Arabic learning book app.",
     docs_url="/docs" if settings.DEBUG or settings.ENVIRONMENT != "production" else None,
     redoc_url="/redoc" if settings.DEBUG or settings.ENVIRONMENT != "production" else None,
     lifespan=lifespan,

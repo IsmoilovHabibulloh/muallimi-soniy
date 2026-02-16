@@ -10,7 +10,7 @@ from app.models.feedback import FeedbackSubmission
 from app.schemas.feedback import FeedbackCreate, FeedbackOut
 from app.services.telegram import send_feedback_to_telegram
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 
 router = APIRouter(prefix="/feedback", tags=["Feedback"])
 

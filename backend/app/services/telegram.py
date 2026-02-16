@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.models.feedback import FeedbackSubmission
 from app.models.system import SystemSettings
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 
 TELEGRAM_API = "https://api.telegram.org"
 
@@ -91,7 +91,7 @@ async def test_telegram_connection(db: AsyncSession) -> Tuple[bool, str]:
     if not chat_ids:
         return False, "Chat ID'lar sozlanmagan"
 
-    test_message = "✅ Muallimus Soniy — Telegram ulanishi muvaffaqiyatli!"
+    test_message = "✅ Muallimi Soniy — Telegram ulanishi muvaffaqiyatli!"
 
     async with httpx.AsyncClient(timeout=10.0) as client:
         for chat_id in chat_ids:

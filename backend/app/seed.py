@@ -11,7 +11,7 @@ from app.models.admin import AdminUser
 from app.utils import hash_password
 from app.config import get_settings
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 settings = get_settings()
 
 

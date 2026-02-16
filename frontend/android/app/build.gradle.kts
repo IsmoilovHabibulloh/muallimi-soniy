@@ -14,7 +14,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "uz.codingtech.muallimus_soniy"
+    namespace = "uz.codingtech.muallimi_soniy"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.0.12674087"
 
@@ -28,7 +28,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "uz.codingtech.muallimus_soniy"
+        applicationId = "uz.codingtech.muallimi_soniy"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

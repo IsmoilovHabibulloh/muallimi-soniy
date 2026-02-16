@@ -15,7 +15,7 @@ from dataclasses import dataclass, asdict
 
 from app.config import get_settings
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 settings = get_settings()
 
 # Arabic diacritics (tashkeel) Unicode range

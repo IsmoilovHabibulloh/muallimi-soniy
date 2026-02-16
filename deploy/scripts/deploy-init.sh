@@ -1,6 +1,6 @@
 #!/bin/bash
 # =====================================================
-# Muallimus Soniy — First-Time Server Setup Script
+# Muallimi Soniy — First-Time Server Setup Script
 # Target: Ubuntu 22.04
 # Path: /var/www/ikkinchimuallim/
 # =====================================================
@@ -13,7 +13,7 @@ API_DOMAIN="api.ikkinchimuallim.codingtech.uz"
 EMAIL="admin@codingtech.uz"
 
 echo "==========================================="
-echo " Muallimus Soniy — Server Setup"
+echo " Muallimi Soniy — Server Setup"
 echo "==========================================="
 
 # 1. Install Docker if not present
@@ -45,11 +45,11 @@ mkdir -p "$PROJECT_DIR/frontend/build/web"
 cat > "$PROJECT_DIR/frontend/build/web/index.html" << 'PLACEHOLDER'
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>Muallimus Soniy</title>
+<head><meta charset="UTF-8"><title>Muallimi Soniy</title>
 <style>body{font-family:Inter,sans-serif;background:#0f1117;color:#e8eaed;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;}
 .c{text-align:center}.e{font-size:48px;margin-bottom:16px}h1{font-size:24px;margin:0}p{color:#9aa0a6;margin-top:8px}</style>
 </head>
-<body><div class="c"><div class="e">📖</div><h1>Muallimus Soniy</h1><p>Ilova tez orada ishga tushadi...</p></div></body>
+<body><div class="c"><div class="e">📖</div><h1>Muallimi Soniy</h1><p>Ilova tez orada ishga tushadi...</p></div></body>
 </html>
 PLACEHOLDER
 

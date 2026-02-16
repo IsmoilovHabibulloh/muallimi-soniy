@@ -7,8 +7,8 @@ import 'core/l10n/app_localizations.dart';
 import 'domain/providers/theme_provider.dart';
 import 'domain/providers/locale_provider.dart';
 
-class MuallimusSoniyApp extends ConsumerWidget {
-  const MuallimusSoniyApp({super.key});
+class MuallimiSoniyApp extends ConsumerWidget {
+  const MuallimiSoniyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

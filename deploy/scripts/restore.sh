@@ -18,7 +18,7 @@ echo "=== Restore started ==="
 if [ -f "$DB_BACKUP" ]; then
     echo "Restoring database from $DB_BACKUP..."
     gunzip -c "$DB_BACKUP" | docker compose -f /var/www/ikkinchimuallim/docker-compose.yml exec -T postgres \
-        psql -U muallimus muallimus_soniy
+        psql -U muallimi muallimi_soniy
     echo "Database restored."
 else
     echo "ERROR: Database backup file not found: $DB_BACKUP"

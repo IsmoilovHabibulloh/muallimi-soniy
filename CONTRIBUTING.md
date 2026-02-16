@@ -1,4 +1,4 @@
-# Muallimus Soniy — Hissa qo'shish qoidalari
+# Muallimi Soniy — Hissa qo'shish qoidalari
 
 Loyihaga qiziqish bildirganingiz uchun rahmat! 🎉
 

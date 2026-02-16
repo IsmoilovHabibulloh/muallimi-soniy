@@ -18,7 +18,7 @@ echo "=== Backup started: $DATE ==="
 # PostgreSQL dump
 echo "Backing up PostgreSQL..."
 docker compose -f "$PROJECT_DIR/docker-compose.yml" exec -T postgres \
-    pg_dump -U muallimus muallimus_soniy | gzip > "$BACKUP_DIR/db_$DATE.sql.gz"
+    pg_dump -U muallimi muallimi_soniy | gzip > "$BACKUP_DIR/db_$DATE.sql.gz"
 echo "Database backup: $BACKUP_DIR/db_$DATE.sql.gz"
 
 # Media files

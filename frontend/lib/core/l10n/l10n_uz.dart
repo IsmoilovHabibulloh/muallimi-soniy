@@ -239,7 +239,7 @@ const Map<String, String> uzStrings = {
   'aboutOpenSourceTitle': '6. Ochiq manba',
   'aboutOpenSource1':
       'Dasturiy kod CC BY-NC 4.0 litsenziyasi ostida ochiq (open source).',
-  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimus-soniy',
+  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimi-soniy',
   'aboutPublishTitle': '7. Nashr ma\'lumotlari',
   'aboutOriginalAuthor': 'Ahmad Xodiy Maqsudiy',
   'aboutPublishBasis': 'VazMahkama, 3438-son, 2014',

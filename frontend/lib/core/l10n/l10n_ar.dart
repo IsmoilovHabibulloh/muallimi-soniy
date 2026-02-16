@@ -239,7 +239,7 @@ const Map<String, String> arStrings = {
   'aboutOpenSourceTitle': '6. المصدر المفتوح',
   'aboutOpenSource1':
       'الكود المصدري مفتوح بموجب ترخيص CC BY-NC 4.0.',
-  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimus-soniy',
+  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimi-soniy',
   'aboutPublishTitle': '7. تفاصيل النشر',
   'aboutOriginalAuthor': 'أحمد خودي مقصودي',
   'aboutPublishBasis': 'مجلس الوزراء، رقم 3438، 2014',

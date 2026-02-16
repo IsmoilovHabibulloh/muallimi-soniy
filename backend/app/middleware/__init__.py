@@ -10,7 +10,7 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from pythonjsonlogger import jsonlogger
 
 # Configure JSON logger
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 handler = logging.StreamHandler()
 formatter = jsonlogger.JsonFormatter(
     "%(asctime)s %(name)s %(levelname)s %(message)s",

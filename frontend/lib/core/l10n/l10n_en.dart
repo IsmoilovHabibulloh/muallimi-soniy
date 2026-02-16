@@ -239,7 +239,7 @@ const Map<String, String> enStrings = {
   'aboutOpenSourceTitle': '6. Open Source',
   'aboutOpenSource1':
       'Source code is open under CC BY-NC 4.0 license (open source).',
-  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimus-soniy',
+  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimi-soniy',
   'aboutPublishTitle': '7. Publication Details',
   'aboutOriginalAuthor': 'Ahmad Khodiy Maqsudiy',
   'aboutPublishBasis': 'Cabinet of Ministers, No. 3438, 2014',

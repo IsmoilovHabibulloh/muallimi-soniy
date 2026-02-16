@@ -1,4 +1,4 @@
-"""Seed the book with pages from Muallimus Soniy for native rendering."""
+"""Seed the book with pages from Muallimi Soniy for native rendering."""
 
 import asyncio
 import logging
@@ -7,7 +7,7 @@ from app.database import AsyncSessionLocal
 from app.models.book import Book, Chapter, Page, TextUnit, UnitType
 from app.seed_book_data import PAGES
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 
 # Advisory lock ID to prevent multiple workers from seeding simultaneously
 SEED_LOCK_ID = 123456789
@@ -90,7 +90,7 @@ async def seed_book():
                 book = Book(
                     title="المُعَلِّمُ الثَّانِي",
                     description="Ikkinchi Muallim — Arab alifbosi va o'qish darsligi",
-                    author="Muallimus Soniy",
+                    author="Muallimi Soniy",
                     total_pages=total_pages,
                     manifest_version=1,
                     is_published=True,

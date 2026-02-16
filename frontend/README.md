@@ -1,4 +1,4 @@
-# muallimus_soniy
+# muallimi_soniy
 
 A new Flutter project.
 

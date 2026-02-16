@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Islamic green color palette for Muallimus Soniy.
+/// Islamic green color palette for Muallimi Soniy.
 /// Green was the beloved color of Prophet Muhammad ﷺ.
 class AppColors {
   AppColors._();

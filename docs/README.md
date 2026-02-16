@@ -1,4 +1,4 @@
-# Muallimus Soniy — Developer Guide
+# Muallimi Soniy — Developer Guide
 
 An Arabic learning book app (Ikkinchi Muallim) with a Flutter web frontend, FastAPI backend, and admin panel.
 

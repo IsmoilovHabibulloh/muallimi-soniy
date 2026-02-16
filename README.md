@@ -1,9 +1,9 @@
-# 📖 Muallimus Soniy (Ikkinchi Muallim)
+# 📖 Muallimi Soniy (Ikkinchi Muallim)
 
-**Ahmad Xodiy Maqsudiy — "Muallimus Soniy"** kitobini raqamlashtirish loyihasi.
+**Ahmad Xodiy Maqsudiy — "Muallimi Soniy"** kitobini raqamlashtirish loyihasi.
 Arab alifbosini interaktiv o'rganish platformasi.
 
-> An interactive Arabic alphabet learning platform, digitizing the classic textbook "Muallimus Soniy" (The Second Teacher) by Ahmad Khodiy Maqsudiy.
+> An interactive Arabic alphabet learning platform, digitizing the classic textbook "Muallimi Soniy" (The Second Teacher) by Ahmad Khodiy Maqsudiy.
 
 ---
 
@@ -55,8 +55,8 @@ Arab alifbosini interaktiv o'rganish platformasi.
 
 ```bash
 # 1. Reponi klonlash
-git clone https://github.com/YOUR_USERNAME/muallimus-soniy.git
-cd muallimus-soniy
+git clone https://github.com/YOUR_USERNAME/muallimi-soniy.git
+cd muallimi-soniy
 
 # 2. Environment sozlash
 cp .env.example .env

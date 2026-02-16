@@ -1,4 +1,4 @@
-"""Page content data for Muallimus Soniy — transcribed from actual book pages.
+"""Page content data for Muallimi Soniy — transcribed from actual book pages.
 
 Each page is a list of (text, section, type) tuples.
 type: "letter", "word", "sentence"

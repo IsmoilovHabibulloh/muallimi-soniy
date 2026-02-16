@@ -1,4 +1,4 @@
-# 📱 Play Store Nashr Ma'lumotlari — Muallimus Soniy
+# 📱 Play Store Nashr Ma'lumotlari — Muallimi Soniy
 
 ---
 
@@ -6,9 +6,9 @@
 
 | Maydon | Qiymat |
 |--------|--------|
-| **Ilova nomi** | Muallimus Soniy — Ikkinchi Muallim |
+| **Ilova nomi** | Muallimi Soniy — Ikkinchi Muallim |
 | **Dasturchi nomi** | MYSTAR MChJ (CodingTech.uz) |
-| **Package ID** | uz.codingtech.muallimus_soniy |
+| **Package ID** | uz.codingtech.muallimi_soniy |
 | **Versiya** | 1.0.0 (Build 1) |
 | **Kategoriya** | Education (Ta'lim) |
 | **Tarkib reytingi** | Everyone (Hamma uchun) |
@@ -21,7 +21,7 @@
 ## 📝 Qisqa Tavsif (Short Description) — 80 belgigacha
 
 ```
-Ahmad Xodiy Maqsudiy — "Muallimus Soniy" kitobini raqamli o'rganing. BEPUL!
+Ahmad Xodiy Maqsudiy — "Muallimi Soniy" kitobini raqamli o'rganing. BEPUL!
 ```
 
 ---
@@ -29,14 +29,14 @@ Ahmad Xodiy Maqsudiy — "Muallimus Soniy" kitobini raqamli o'rganing. BEPUL!
 ## 📝 To'liq Tavsif (Full Description) — 4000 belgigacha
 
 ```
-📖 Muallimus Soniy — Ikkinchi Muallim
+📖 Muallimi Soniy — Ikkinchi Muallim
 
-Ahmad Xodiy Maqsudiy tomonidan yozilgan mashhur "Muallimus Soniy" (Ikkinchi Muallim) kitobining raqamli versiyasi. Arab alifbosini interaktiv tarzda o'rganish uchun eng qulay ilova!
+Ahmad Xodiy Maqsudiy tomonidan yozilgan mashhur "Muallimi Soniy" (Ikkinchi Muallim) kitobining raqamli versiyasi. Arab alifbosini interaktiv tarzda o'rganish uchun eng qulay ilova!
 
 ✨ XUSUSIYATLARI:
 
 📚 Raqamlashtirilgan kitob
-• Asl "Muallimus Soniy" kitobining barcha sahifalari yuqori sifatda raqamlashtirilgan
+• Asl "Muallimi Soniy" kitobining barcha sahifalari yuqori sifatda raqamlashtirilgan
 • Har bir sahifani kattalashtirish va kichraytirish mumkin
 • Qulay o'qish rejimi
 
@@ -63,14 +63,14 @@ Ahmad Xodiy Maqsudiy tomonidan yozilgan mashhur "Muallimus Soniy" (Ikkinchi Mual
 🕌 KIM UCHUN?
 • Arab alifbosini noldan o'rganmoqchi bo'lganlar
 • Qur'on o'qishni o'rganuvchilar
-• "Muallimus Soniy" kitobini raqamli formatda o'qimoqchilar
+• "Muallimi Soniy" kitobini raqamli formatda o'qimoqchilar
 • Islomiy ta'lim oluvchilar
 
 🆓 BUTUNLAY BEPUL!
 Ilova butunlay bepul va reklama yo'q. Barcha funksiyalar cheklanmagan holda mavjud.
 
 📖 KITOB HAQIDA:
-"Muallimus Soniy" (Ikkinchi Muallim) — Ahmad Xodiy Maqsudiy tomonidan yozilgan arab alifbosini o'rgatish uchun mo'ljallangan klassik darslik. Bu kitob o'zbek xalqi orasida arab yozuvini o'rganishda eng mashhur qo'llanmalardan biri hisoblanadi.
+"Muallimi Soniy" (Ikkinchi Muallim) — Ahmad Xodiy Maqsudiy tomonidan yozilgan arab alifbosini o'rgatish uchun mo'ljallangan klassik darslik. Bu kitob o'zbek xalqi orasida arab yozuvini o'rganishda eng mashhur qo'llanmalardan biri hisoblanadi.
 
 💚 CodingTech jamoasi tomonidan muhabbat bilan yaratildi.
 
@@ -82,7 +82,7 @@ Savollar yoki takliflar bo'lsa, biz bilan bog'laning!
 ## 🏷️ Kalit so'zlar (Keywords/Tags)
 
 ```
-muallimus soniy, ikkinchi muallim, arab alifbosi, arabic alphabet, quran learning,
+muallimi soniy, ikkinchi muallim, arab alifbosi, arabic alphabet, quran learning,
 ahmad xodiy maqsudiy, islomiy talim, arab tili, alifbo, muslim, uzbek islamic,
 arab yozuvi, quron, arabic learning uzbek, muallim, darslik, kitob
 ```
@@ -103,7 +103,7 @@ arab yozuvi, quron, arabic learning uzbek, muallim, darslik, kitob
 ⚠️ **MUHIM:** Play Store uchun maxfiylik siyosati sahifasi kerak. 
 Quyidagi variantlardan birini tanlang:
 1. `https://muslim.uz/privacy-policy` sahifasini yarating
-2. GitHub Pages orqali: `https://codingtech-uz.github.io/muallimus-soniy/privacy`
+2. GitHub Pages orqali: `https://codingtech-uz.github.io/muallimi-soniy/privacy`
 
 ---
 

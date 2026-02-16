@@ -1,1 +1,1 @@
-"""Muallimus Soniy Backend Application."""
+"""Muallimi Soniy Backend Application."""

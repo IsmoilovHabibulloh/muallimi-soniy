@@ -10,7 +10,7 @@ from dataclasses import dataclass, asdict
 
 from app.services.image_analyzer import has_arabic_diacritics, count_diacritics
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 
 
 @dataclass

@@ -10,13 +10,13 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
     # App
-    APP_NAME: str = "Muallimus Soniy"
+    APP_NAME: str = "Muallimi Soniy"
     APP_VERSION: str = "1.0.0"
     ENVIRONMENT: str = "production"
     DEBUG: bool = False
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://muallimus:password@postgres:5432/muallimus_soniy"
+    DATABASE_URL: str = "postgresql+asyncpg://muallimi:password@postgres:5432/muallimi_soniy"
     DATABASE_URL_SYNC: str = ""
 
     # Redis

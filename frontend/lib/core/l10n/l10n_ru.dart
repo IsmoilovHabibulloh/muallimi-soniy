@@ -239,7 +239,7 @@ const Map<String, String> ruStrings = {
   'aboutOpenSourceTitle': '6. Открытый исходный код',
   'aboutOpenSource1':
       'Исходный код открыт под лицензией CC BY-NC 4.0 (open source).',
-  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimus-soniy',
+  'aboutOpenSource2': 'GitHub: github.com/IsmoilovHabibulloh/muallimi-soniy',
   'aboutPublishTitle': '7. Сведения о публикации',
   'aboutOriginalAuthor': 'Ахмад Ходий Максудий',
   'aboutPublishBasis': 'КабМин, №3438, 2014',

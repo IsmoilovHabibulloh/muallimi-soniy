@@ -7,7 +7,7 @@ from app.config import get_settings
 settings = get_settings()
 
 celery_app = Celery(
-    "muallimus",
+    "muallimi",
     broker=settings.CELERY_BROKER_URL,
     backend=settings.CELERY_RESULT_BACKEND,
     include=[

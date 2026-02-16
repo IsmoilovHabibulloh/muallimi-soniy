@@ -6,7 +6,7 @@ import os
 from app.tasks.celery_app import celery_app
 from app.config import get_settings
 
-logger = logging.getLogger("muallimus")
+logger = logging.getLogger("muallimi")
 settings = get_settings()
 
 
@@ -31,8 +31,8 @@ def process_pdf_task(self, pdf_path: str):
             book = db.query(Book).first()
             if not book:
                 book = Book(
-                    title="Muallimus Soniy",
-                    description="Ahmad Xodiy Maqsudiy — Muallimus Soniy (Ikkinchi Muallim)",
+                    title="Muallimi Soniy",
+                    description="Ahmad Xodiy Maqsudiy — Muallimi Soniy (Ikkinchi Muallim)",
                     author="Ahmad Xodiy Maqsudiy",
                     total_pages=len(pages_info),
                 )
