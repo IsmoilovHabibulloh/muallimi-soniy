@@ -308,8 +308,10 @@ class _NativePageRendererState extends State<NativePageRenderer> {
       if (firstSection.contains('maddi_title')) return 'title';
       if (firstSection.contains('maddi_headers')) return 'maddi_table';
       if (firstSection.contains('maddi_')) return 'maddi_table';
-      // Lesson 5-7 pages (19-21) — headers are titles, rest are word rows
+      // Lesson headers, marks, examples — dars qoidalari / namunalari
       if (firstSection.contains('_header')) return 'title';
+      if (firstSection.contains('_marks')) return 'title';
+      if (firstSection.contains('_example')) return 'title';
       if (firstSection.startsWith('lesson5_')) return 'madd_word_row';
       if (firstSection.startsWith('lesson6_')) return 'madd_word_row';
       if (firstSection.startsWith('lesson7_')) return 'madd_word_row';
