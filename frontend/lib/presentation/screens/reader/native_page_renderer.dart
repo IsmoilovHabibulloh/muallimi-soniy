@@ -308,9 +308,10 @@ class _NativePageRendererState extends State<NativePageRenderer> {
       if (firstSection.contains('maddi_title')) return 'title';
       if (firstSection.contains('maddi_headers')) return 'maddi_table';
       if (firstSection.contains('maddi_')) return 'maddi_table';
-      // Lesson 5-7 pages (19-21) — tikka fatha but NO table borders
+      // Lesson 5-7 pages (19-21) — headers are titles, rest are word rows
+      if (firstSection.contains('_header')) return 'title';
       if (firstSection.startsWith('lesson5_')) return 'madd_word_row';
-      if (firstSection.startsWith('lesson6_') && !firstSection.contains('ya_header')) return 'madd_word_row';
+      if (firstSection.startsWith('lesson6_')) return 'madd_word_row';
       if (firstSection.startsWith('lesson7_')) return 'madd_word_row';
       if (firstSection.contains('bismillah')) return 'bismillah';
       if (firstSection.contains('title')) return 'title';
@@ -826,16 +827,20 @@ class _TitleUnitState extends State<_TitleUnit>
     with SingleTickerProviderStateMixin {
   late AnimationController _entryController;
   late Animation<double> _entryOpacity;
+  late Animation<double> _entrySlide;
 
   @override
   void initState() {
     super.initState();
     _entryController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 700),
     );
     _entryOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _entryController, curve: Curves.easeOut),
+      CurvedAnimation(parent: _entryController, curve: const Interval(0.0, 0.6, curve: Curves.easeOut)),
+    );
+    _entrySlide = Tween<double>(begin: 20.0, end: 0.0).animate(
+      CurvedAnimation(parent: _entryController, curve: Curves.easeOutCubic),
     );
     _entryController.forward();
   }
@@ -848,31 +853,154 @@ class _TitleUnitState extends State<_TitleUnit>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _entryOpacity,
+    final sw = MediaQuery.of(context).size.width;
+    final fontSize = sw < 400 ? 34.0 : 44.0;
+
+    return AnimatedBuilder(
+      animation: _entryController,
+      builder: (context, child) {
+        return Opacity(
+          opacity: _entryOpacity.value,
+          child: Transform.translate(
+            offset: Offset(0, _entrySlide.value),
+            child: child,
+          ),
+        );
+      },
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          width: double.infinity,
+          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: widget.isActive
-                ? AppColors.primary.withOpacity(0.1)
-                : Colors.transparent,
-          ),
-          child: Text(
-            widget.unit.textContent,
-            textDirection: TextDirection.rtl,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'ScheherazadeNew',
-              fontSize: 36,
-              height: 1.8,
-              color: widget.isActive
-                  ? AppColors.primary
-                  : const Color(0xFF2E7D32),
-              fontWeight: FontWeight.w700,
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: widget.isActive
+                  ? [
+                      AppColors.primary.withOpacity(0.18),
+                      AppColors.primary.withOpacity(0.08),
+                    ]
+                  : [
+                      AppColors.primary.withOpacity(0.10),
+                      AppColors.primary.withOpacity(0.04),
+                    ],
             ),
+            border: Border.all(
+              color: widget.isActive
+                  ? AppColors.primary.withOpacity(0.35)
+                  : AppColors.primary.withOpacity(0.15),
+              width: 1.5,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.primary.withOpacity(widget.isActive ? 0.15 : 0.06),
+                blurRadius: 12,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Small decorative top ornament
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      margin: const EdgeInsets.only(right: 12),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            AppColors.primary.withOpacity(0.25),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.diamond_outlined,
+                    size: 14,
+                    color: AppColors.primary.withOpacity(0.4),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      margin: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.primary.withOpacity(0.25),
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              // Title text
+              Text(
+                widget.unit.textContent,
+                textDirection: TextDirection.rtl,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'ScheherazadeNew',
+                  fontSize: fontSize,
+                  height: 1.8,
+                  color: widget.isActive
+                      ? AppColors.primary
+                      : const Color(0xFF1B5E20),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 8),
+              // Bottom ornament
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      margin: const EdgeInsets.only(right: 12),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Colors.transparent,
+                            AppColors.primary.withOpacity(0.25),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.diamond_outlined,
+                    size: 14,
+                    color: AppColors.primary.withOpacity(0.4),
+                  ),
+                  Expanded(
+                    child: Container(
+                      height: 1,
+                      margin: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            AppColors.primary.withOpacity(0.25),
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

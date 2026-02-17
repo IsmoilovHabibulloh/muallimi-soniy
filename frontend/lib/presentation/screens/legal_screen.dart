@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/theme/colors.dart';
 import '../../core/l10n/app_localizations.dart';
 
@@ -22,7 +23,7 @@ class LegalScreen extends StatelessWidget {
         title: Text(_getTitle(l)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => context.pop(),
         ),
       ),
       body: ListView(

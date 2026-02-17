@@ -14,11 +14,60 @@ const Map<String, String> _langFlags = {
   'ar': '🇸🇦',
 };
 
-class SettingsScreen extends ConsumerWidget {
-  const SettingsScreen({super.key});
+class SettingsScreen extends ConsumerStatefulWidget {
+  final String? section;
+  const SettingsScreen({super.key, this.section});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
+  final ScrollController _scrollController = ScrollController();
+  final GlobalKey _themeKey = GlobalKey();
+  final GlobalKey _languageKey = GlobalKey();
+  final GlobalKey _aboutKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.section != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _scrollToSection(widget.section!);
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToSection(String section) {
+    GlobalKey? targetKey;
+    switch (section) {
+      case 'theme':
+        targetKey = _themeKey;
+        break;
+      case 'language':
+        targetKey = _languageKey;
+        break;
+      case 'about':
+        targetKey = _aboutKey;
+        break;
+    }
+    if (targetKey?.currentContext != null) {
+      Scrollable.ensureVisible(
+        targetKey!.currentContext!,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final themeMode = ref.watch(themeModeProvider);
     final locale = ref.watch(localeProvider);
     final l = AppLocalizations.of(context)!;
@@ -28,14 +77,15 @@ class SettingsScreen extends ConsumerWidget {
         title: Text('⚙️ ${l.settings}'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => context.pop(),
         ),
       ),
       body: ListView(
+        controller: _scrollController,
         padding: const EdgeInsets.all(20),
         children: [
           // Theme Section
-          Text(l.theme, style: Theme.of(context).textTheme.titleMedium),
+          Text(l.theme, key: _themeKey, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 12),
           _SettingCard(
             children: [
@@ -77,7 +127,7 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 24),
 
           // Language Section
-          Text(l.language, style: Theme.of(context).textTheme.titleMedium),
+          Text(l.language, key: _languageKey, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 12),
           _SettingCard(
             children: LocaleNotifier.supportedLanguages.entries.map((entry) {
@@ -112,7 +162,7 @@ class SettingsScreen extends ConsumerWidget {
           const SizedBox(height: 24),
 
           // About & Legal
-          Text(l.aboutApp, style: Theme.of(context).textTheme.titleMedium),
+          Text(l.aboutApp, key: _aboutKey, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 12),
           _SettingCard(
             children: [

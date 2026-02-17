@@ -39,6 +39,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/settings',
         builder: (context, state) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+            path: ':section',
+            builder: (context, state) {
+              final section = state.pathParameters['section'];
+              return SettingsScreen(section: section);
+            },
+          ),
+        ],
       ),
       GoRoute(
         path: '/legal/privacy',

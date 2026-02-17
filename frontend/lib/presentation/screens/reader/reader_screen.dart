@@ -1,5 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:go_router/go_router.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:just_audio/just_audio.dart';
@@ -302,6 +306,10 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
                   _activeUnitId = null;
                 }
               });
+              // Sync browser URL without triggering navigation/rebuild
+              if (kIsWeb) {
+                html.window.history.replaceState(null, '', '#/reader/$newPage');
+              }
               // Save last read page
               SharedPreferences.getInstance().then((prefs) {
                 prefs.setInt(AppConstants.keyLastReadPage, newPage);
@@ -357,7 +365,7 @@ class _ReaderScreenState extends ConsumerState<ReaderScreen> {
                       icon: const Icon(Icons.arrow_back_rounded),
                       onPressed: () {
                         _stop();
-                        Navigator.of(context).pop();
+                        context.pop();
                       },
                     ),
                     Expanded(

@@ -19,7 +19,7 @@ class TocScreen extends ConsumerWidget {
         title: Text('📋 ${l.tableOfContents}'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => context.pop(),
         ),
       ),
       body: chaptersAsync.when(
